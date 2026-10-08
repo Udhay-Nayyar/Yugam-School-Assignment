@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Log in</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <h1>Log in</h1>
+  <p class="sub">Enter your email and password to continue.</p>
+  <div id="msg" class="banner" hidden role="alert"></div>
+  <form id="form" novalidate>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" >
+        <p class="err" id="e-email" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="current-password" >
+        <p class="err" id="e-password" aria-live="polite"></p>
+      </div>
+    <button class="btn" id="go" type="submit">Log in</button>
+  </form>
+  <p class="alt">New here? <a href="index.html">Create an account</a></p>
+</main>
+<script type="module" src="js/login.js"></script>
+</body>
+</html>

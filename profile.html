@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Your profile</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:wght@700&family=Source+Sans+3:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<main>
+  <div class="bar"><h1>Your profile</h1><button class="btn ghost" id="logout" type="button">Log out</button></div>
+  <p class="sub">Check your details and press Validate when you are done.</p>
+  <div id="msg" class="banner" hidden role="status"></div>
+  <form id="form" novalidate>
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" type="text" autocomplete="name" >
+        <p class="err" id="e-name" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="password">Password</label>
+        <input id="password" type="password" autocomplete="new-password" >
+        <p class="err" id="e-password" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="mobile">Mobile number</label>
+        <input id="mobile" type="tel" autocomplete="tel" inputmode="numeric">
+        <p class="err" id="e-mobile" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="username">Username</label>
+        <input id="username" type="text" autocomplete="username" >
+        <p class="err" id="e-username" aria-live="polite"></p>
+      </div>
+      <div class="field">
+        <label for="email">Email</label>
+        <input id="email" type="email" autocomplete="email" >
+        <p class="err" id="e-email" aria-live="polite"></p>
+      </div>
+    <button class="btn" id="go" type="submit">Validate</button>
+  </form>
+</main>
+<script type="module" src="js/profile.js"></script>
+</body>
+</html>

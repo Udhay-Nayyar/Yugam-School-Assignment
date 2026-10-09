@@ -84,7 +84,7 @@ All rules live in `js/validators.js`. No field may be empty.
 | Name | Letters only, spaces allowed between words | `John Smith` | `John123` |
 | Password | At least one letter and one number | `abc123` | `abcdef` |
 | Mobile number | Exactly 10 digits | `9876543210` | `98765` |
-| Username | Letters and digits, with at most one special character | `john_doe1` | `john__doe` |
+| Username | Letters and digits with exactly one special character, no spaces | `john_doe1` | `johndoe`, `12345`, `john__doe1`, `john doe1` |
 | Email | Basic `name@domain.tld` format | `a@b.com` | `a@b` |
 
 Firebase also requires passwords to be at least 6 characters when registering.

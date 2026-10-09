@@ -4,7 +4,8 @@ export const rules = {
   password: { re: /^(?=.*[A-Za-z])(?=.*\d).+$/, msg: "Use at least one letter and one number." },
   mobile:   { re: /^\d{10}$/, msg: "Enter exactly 10 digits." },
   // letters/digits, with at most one special character, e.g. john_doe1
-  username: { re: /^(?=.*[A-Za-z0-9])[A-Za-z0-9]*[^A-Za-z0-9\s]?[A-Za-z0-9]*$/, msg: "Use letters and digits, with no more than one special character." },
+    // letters + digits with exactly one special character (no spaces), e.g. john_doe1
+  username: { re: /^(?=.*[A-Za-z])(?=.*\d)[A-Za-z0-9]*[^A-Za-z0-9\s][A-Za-z0-9]*$/, msg: "Use letters and digits with exactly one special character (e.g. john_doe1)." },
   email:    { re: /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/, msg: "Enter a valid email, e.g. name@example.com." }
 };
 

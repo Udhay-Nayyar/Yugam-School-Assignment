@@ -6,6 +6,7 @@ import { validateForm, banner, busy } from "./validators.js";
 const $ = (id) => document.getElementById(id);
 const FIELDS = ["name", "password", "mobile", "username", "email"];
 let user;
+let savedName = "";
 
 // Auth guard: logged-out visitors are sent to the login page.
 onAuthStateChanged(auth, async (u) => {
@@ -15,9 +16,11 @@ onAuthStateChanged(auth, async (u) => {
   $("email").value = u.email || "";
   $("password").value = sessionStorage.getItem("pw") || "";
   sessionStorage.removeItem("pw"); // delete right after use
+   savedName = u.displayName || "";
   try {
     const snap = await getDoc(doc(db, "users", u.uid));
     if (snap.exists()) {
+      savedName = snap.data().name || savedName;
       $("mobile").value = snap.data().mobile || "";
       $("username").value = snap.data().username || "";
     }
@@ -34,8 +37,8 @@ async function matchesAccount() {
     ok = false;
   };
 
-  const snap = await getDoc(doc(db, "users", user.uid));
-  const savedName = (snap.exists() && snap.data().name) || user.displayName || "";
+  // const snap = await getDoc(doc(db, "users", user.uid));
+  // const savedName = (snap.exists() && snap.data().name) || user.displayName || "";
   if ($("name").value.trim() !== savedName) mismatch("name", "This does not match the name you registered with.");
   if ($("email").value.trim().toLowerCase() !== user.email.toLowerCase()) mismatch("email", "This does not match your account email.");
 
